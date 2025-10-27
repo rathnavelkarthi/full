@@ -1,0 +1,49 @@
+{
+  "name": "dr-senz-medical-platform",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "tunnel": "npx localtunnel --port 3000 --subdomain dr-senz-medical",
+    "serve": "concurrently \"npm run dev\" \"npm run tunnel\"",
+    "build:prod": "npm run build && npm run preview",
+    "lint": "echo 'Linting not configured yet'",
+    "test": "echo 'Tests not configured yet'",
+    "db:setup": "node scripts/setup-database.js",
+    "db:migrate": "node scripts/migrate-database.js",
+    "deploy:neon": "node scripts/deploy-to-neon.js",
+    "docker:dev": "docker-compose -f docker-compose.dev.yml up -d",
+    "docker:prod": "docker-compose up -d",
+    "docker:build": "docker-compose build",
+    "docker:stop": "docker-compose down && docker-compose -f docker-compose.dev.yml down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:setup": "bash scripts/docker-setup.sh",
+    "neon:setup": "node scripts/setup-neon-local.js",
+    "neon:test": "node -e \"console.log('Testing Neon connection...'); import('./src/config/database.js').then(m => m.dbUtils.testConnection())\"",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2",
+    "@supabase/supabase-js": "^2.76.1",
+    "concurrently": "^7.6.0",
+    "date-fns": "^2.29.3",
+    "dotenv": "^17.2.3",
+    "lucide-react": "^0.263.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.14",
+    "localtunnel": "^2.0.2",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7",
+    "vite": "^4.1.0"
+  }
+}

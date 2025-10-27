@@ -1,0 +1,126 @@
+/* stylelint-disable-next-line at-rule-no-unknown */
+@tailwind base;
+/* stylelint-disable-next-line at-rule-no-unknown */
+@tailwind components;
+/* stylelint-disable-next-line at-rule-no-unknown */
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-slate-200;
+  }
+  body {
+    @apply bg-gradient-to-br from-slate-50 to-blue-50 text-slate-900 font-sans antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  /* Smooth scrolling for better UX */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-blue-500 ring-opacity-50 rounded-lg;
+  }
+
+  /* Custom scrollbar for modern look */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-100 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-blue-100 text-blue-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50;
+  }
+
+  .btn-secondary {
+    @apply bg-white border-2 border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 font-semibold py-3 px-6 rounded-xl transition-all duration-200 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50;
+  }
+
+  .btn-danger {
+    @apply bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-50;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-slate-200/60 p-6 hover:shadow-lg transition-all duration-300 backdrop-blur-sm;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white/50 backdrop-blur-sm;
+  }
+
+  .sidebar-item {
+    @apply w-full flex items-center px-4 py-3 text-left rounded-lg transition-colors duration-200;
+  }
+
+  .sidebar-item.active {
+    @apply bg-blue-50 text-blue-700 font-medium border-r-2 border-blue-500;
+  }
+
+  .sidebar-item.inactive {
+    @apply text-slate-600 hover:bg-slate-100;
+  }
+
+  /* Modern healthcare specific components */
+  .vital-card {
+    @apply bg-gradient-to-br from-white to-slate-50 rounded-2xl p-6 border border-slate-200/60 hover:border-blue-300 hover:shadow-lg transition-all duration-300 text-center group;
+  }
+
+  .doctor-card {
+    @apply bg-gradient-to-br from-white to-slate-50 rounded-2xl p-6 border border-slate-200/60 hover:border-blue-300 hover:shadow-lg transition-all duration-300 cursor-pointer group;
+  }
+
+  .stats-card {
+    @apply bg-white rounded-2xl shadow-sm border border-slate-200/60 p-6 hover:shadow-lg transition-all duration-300 hover:border-blue-200 group;
+  }
+
+  /* Loading animations */
+  .pulse-medical {
+    animation: pulse-medical 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-medical {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  /* Modern gradients */
+  .gradient-medical {
+    @apply bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-r from-blue-500 to-indigo-600;
+  }
+
+  .gradient-success {
+    @apply bg-gradient-to-r from-emerald-500 to-green-600;
+  }
+
+  .gradient-warning {
+    @apply bg-gradient-to-r from-amber-500 to-orange-600;
+  }
+
+  .gradient-danger {
+    @apply bg-gradient-to-r from-red-500 to-red-600;
+  }
+}
